@@ -27,7 +27,7 @@ if (isset($_POST['simpan'])) {
             )");
     }
     echo "<script> 
-            document.location='index.php?page=dokter';
+            document.location='index2.php?page=dokter';
         </script>";
 }
 if (isset($_GET['aksi'])) {
@@ -36,7 +36,7 @@ if (isset($_GET['aksi'])) {
     }
 
     echo "<script> 
-            document.location='index.php?page=dokter';
+            document.location='index2.php?page=dokter';
         </script>";
 }
 ?>
@@ -144,8 +144,8 @@ if (isset($_GET['aksi'])) {
                     <td><?php echo $data['no_hp'] ?></td>
                     <td><?php echo $data['id_poli'] ?></td>
                     <td>
-                        <a class="btn btn-success rounded-pill px-3" href="index.php?page=dokter&id=<?php echo $data['id'] ?>">Ubah</a>
-                        <a class="btn btn-danger rounded-pill px-3" href="index.php?page=dokter&id=<?php echo $data['id'] ?>&aksi=hapus">Hapus</a>
+                        <a class="btn btn-success rounded-pill px-3" href="index2.php?page=dokter&id=<?php echo $data['id'] ?>">Ubah</a>
+                        <a class="btn btn-danger rounded-pill px-3" href="index2.php?page=dokter&id=<?php echo $data['id'] ?>&aksi=hapus">Hapus</a>
                     </td>
                 </tr>
             <?php

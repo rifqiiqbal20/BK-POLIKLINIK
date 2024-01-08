@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = $result->fetch_assoc();
         if (($no_hp == $row['no_hp'])) {
             $_SESSION['nama'] = $nama;
+            $_SESSION['id'] = $row['id'];
             header("Location: berandaDokter.php");
         } else {
             $error = "Password salah";
@@ -45,11 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
                         ?>
                         <div class="form-group">
-                            <label for="nama">Nama</label>
+                            <label for="nama" style="color:white">Nama</label>
                             <input type="text" name="nama" class="form-control" required placeholder="Masukkan nama anda">
                         </div>
                         <div class="form-group">
-                            <label for="no_hp">Password</label>
+                            <label for="no_hp" style="color:white">Password</label>
                             <input type="number" name="no_hp" class="form-control" required placeholder="Masukkan password anda">
                         </div>
                         <div class="text-center">

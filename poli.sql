@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2023 at 05:23 PM
+-- Generation Time: Jan 08, 2024 at 03:25 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,8 +32,20 @@ CREATE TABLE `daftar_poli` (
   `id_pasien` int(11) NOT NULL,
   `id_jadwal` int(11) NOT NULL,
   `keluhan` text NOT NULL,
-  `no_antrian` int(11) NOT NULL
+  `no_antrian` int(11) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `daftar_poli`
+--
+
+INSERT INTO `daftar_poli` (`id`, `id_pasien`, `id_jadwal`, `keluhan`, `no_antrian`, `tanggal`) VALUES
+(1, 2, 1, 'puyeng', 0, '2024-01-07 05:19:51'),
+(2, 3, 1, 'puyeng', 1, '2024-01-07 05:19:57'),
+(3, 3, 1, 'puyeng', 2, '2024-01-07 15:28:14'),
+(4, 9, 1, 'pusing', 3, '2024-01-07 15:37:32'),
+(5, 9, 1, 'pusing', 4, '2024-01-07 15:37:48');
 
 -- --------------------------------------------------------
 
@@ -46,6 +58,13 @@ CREATE TABLE `detail_periksa` (
   `id_periksa` int(11) NOT NULL,
   `id_obat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_periksa`
+--
+
+INSERT INTO `detail_periksa` (`id`, `id_periksa`, `id_obat`) VALUES
+(1, 3, 7);
 
 -- --------------------------------------------------------
 
@@ -66,9 +85,11 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`id`, `nama`, `alamat`, `no_hp`, `id_poli`) VALUES
-(3, 'Kurnia Iqbal Setiyawan', 'Semarang', '081878928770', 1),
-(4, 'Rahmaisya Intan Damayanti', 'jl cemara', '0877175608230', 4),
-(5, 'Rifqi Iqbal', 'Pati', '087712680238', 5);
+(5, 'rifqi', 'Pati', '0895710818600', 5),
+(12, 'parman', 'wondori', '08765', 1),
+(13, 'Iqbal Ramadhan', 'Jl raya pati', '0871278367', 3),
+(14, 'Michele Zara', 'Jl Kemayoran', '0817267782', 4),
+(15, 'Seina Betami', 'Jl Pahlawan', '087717628652', 1);
 
 -- --------------------------------------------------------
 
@@ -83,6 +104,15 @@ CREATE TABLE `jadwal_periksa` (
   `jam_mulai` time NOT NULL,
   `jam_selesai` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jadwal_periksa`
+--
+
+INSERT INTO `jadwal_periksa` (`id`, `id_dokter`, `hari`, `jam_mulai`, `jam_selesai`) VALUES
+(1, 5, 'Selasa', '11:06:20', '18:06:20'),
+(2, 5, 'Senin', '10:17:07', '12:17:07'),
+(3, 12, 'Selasa', '08:17:07', '12:17:07');
 
 -- --------------------------------------------------------
 
@@ -102,10 +132,12 @@ CREATE TABLE `obat` (
 --
 
 INSERT INTO `obat` (`id`, `nama_obat`, `kemasan`, `harga`) VALUES
-(1, 'paracetamol', 'strip', 5000),
-(2, 'paratusin', 'strip', 20000),
-(3, 'panadol', 'strip', 10000),
-(4, 'sanmol', 'sirup', 20000);
+(7, 'paramex', 'strip', 4000),
+(8, 'mixagrib', 'strip', 5000),
+(9, 'Paracetamol', 'strip', 5000),
+(10, 'Catarlent Eye ', 'strip', 20000),
+(11, 'Angiotensin-converting enzyme', 'strip', 50000),
+(12, 'Naproxen', 'botol', 20000);
 
 -- --------------------------------------------------------
 
@@ -122,6 +154,29 @@ CREATE TABLE `pasien` (
   `no_rm` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pasien`
+--
+
+INSERT INTO `pasien` (`id`, `nama`, `alamat`, `no_ktp`, `no_hp`, `no_rm`) VALUES
+(2, 'rifqi iqbal', 'pati', '11223', '0736636', '202312-1'),
+(3, 'rifqi', 'pati', '123', '0891817', '202401-2'),
+(4, 'siti', 'pati', '53637399393737', '0723536227', '202401-3'),
+(5, 'siti', 'pati', '53637399393737', '0723536227', '202401-4'),
+(6, 'siti', 'pati', '3838', '33', '202401-5'),
+(7, 'rifqi', 'pati', '1', '1', '202401-6'),
+(8, 'rifqi', 'pati', '373646', '08236363', '202401-7'),
+(9, 'rifqi', 'pati', '39838', '383737', '202401-8'),
+(10, 'rifqi', 'r', '1', '2', '202401-9'),
+(11, 'rifqi', 'iqbal', '2823736', '22838', '202401-10'),
+(12, 'siti', 'pati', '21', '1', '202401-11'),
+(13, 'rifqi', 'pati', '464728', '089654', '202401-12'),
+(14, 'siti', 'pati', '236373839', '0895710818600', '202401-13'),
+(15, 'siti', 'pati', '21', '1', '202401-14'),
+(16, 'Rahmaisya Intan Damayanti', 'jl cemara', '771267654287', '087717534258', '202401-15'),
+(17, 'Rahmaisya Intan ', 'jl cemaraaa', '9882092888', '087717534258', '202401-16'),
+(18, 'Senina ', 'Jl pandean', '7', '5', '202401-17');
+
 -- --------------------------------------------------------
 
 --
@@ -135,6 +190,14 @@ CREATE TABLE `periksa` (
   `catatan` text NOT NULL,
   `biaya_periksa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `periksa`
+--
+
+INSERT INTO `periksa` (`id`, `id_daftar_poli`, `tgl_periksa`, `catatan`, `biaya_periksa`) VALUES
+(1, 1, '2024-01-05 14:07:26', 'obat', 0),
+(3, 3, '2024-01-08 15:14:42', 'oo', 154000);
 
 -- --------------------------------------------------------
 
@@ -153,7 +216,7 @@ CREATE TABLE `poli` (
 --
 
 INSERT INTO `poli` (`id`, `nama_poli`, `keterangan`) VALUES
-(1, 'Poli Jantung', 'Poli jantung Menyediakan layanan kesehatan untuk kesehatan jantung, misalnya seperti gagal jantung, aritmia, penyakit vaskular atau pembuluh darah, katup jantung, infeksi atau penyakit jantung bawaan (kongenital).'),
+(1, 'Poli mata', 'Poli jantung Menyediakan layanan kesehatan untuk kesehatan jantung, misalnya seperti gagal jantung, aritmia, penyakit vaskular atau pembuluh darah, katup jantung, infeksi atau penyakit jantung bawaan (kongenital).'),
 (3, 'Poli Bedah Umum', 'Pengembangan dari klinik ortopedi yang kita ketahui berhubungan erat dengan tulang. Sedangkan untuk bedah umum memberikan pelayanan kesehatan dengan kasus bedah non-ortopedi.'),
 (4, 'Poli Anak', 'Menangani masalah kesehatan terhadap anak, biasanya gejala-gejala penyakit umum seperti demam, batuk, flu, dan lain sebagainya.'),
 (5, 'Poli Mata', 'Dokter akan memberikan pelayanan kesehatan untuk masalah mata, misalnya seperti gangguan di retina, katarak, lasik, mata kering, strabismus, glaukoma dan lainnya.');
@@ -176,9 +239,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`) VALUES
-(1, '', 'lala', '$2y$10$xUXx3XOLSdVZhxydC97F.eI3fyCMTktJjTFxghlpqHvIuilJyiKf2'),
-(2, '', 'lili', '$2y$10$GLPwz87eWGRDeyNG95R/p.MVB5I2WLpzr1YGtOCL/pGxvk7CaBfkO'),
-(3, '', 'intan', '$2y$10$2yztasdFvxB9nXjaD/riZeaJMew72uwC6R0xWVZI1jvPhcVXZc7eW');
+(7, 'admin', 'admin', 'c4ca4238a0b923820dcc509a6f75849b'),
+(8, '', 'rifqi', '$2y$10$y6R05Uwz/.mqkYMSQtOEWu9TKn.z8Dclqsl1lEr8DrvJoaKBc7lvy');
 
 --
 -- Indexes for dumped tables
@@ -253,43 +315,43 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `daftar_poli`
 --
 ALTER TABLE `daftar_poli`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `detail_periksa`
 --
 ALTER TABLE `detail_periksa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `jadwal_periksa`
 --
 ALTER TABLE `jadwal_periksa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `periksa`
 --
 ALTER TABLE `periksa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `poli`
@@ -301,7 +363,7 @@ ALTER TABLE `poli`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

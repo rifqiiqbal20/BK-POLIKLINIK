@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 if (!isset($_SESSION['username'])) {
     // Jika pengguna sudah login, tampilkan tombol "Logout"
-    header("Location: index2.php?page=loginUser");
+    header("Location: index.php?page=loginUser");
     exit;
 }
 
@@ -29,7 +29,7 @@ if (isset($_POST['simpan'])) {
             )");
     }
     echo "<script> 
-        document.location='index.php?page=pasien';
+        document.location='index2.php?page=pasien';
         </script>";
 }
 if (isset($_GET['aksi'])) {
@@ -38,7 +38,7 @@ if (isset($_GET['aksi'])) {
     }
 
     echo "<script> 
-            document.location='index.php?page=pasien';
+            document.location='index2.php?page=pasien';
         </script>";
 }
 ?>
@@ -151,8 +151,8 @@ if (isset($_GET['aksi'])) {
                     <td><?php echo $data['no_hp'] ?></td>
                     <td><?php echo $data['no_rm'] ?></td>
                     <td>
-                        <a class="btn btn-success rounded-pill px-3" href="index.php?page=pasien&id=<?php echo $data['id'] ?>">Ubah</a>
-                        <a class="btn btn-danger rounded-pill px-3" href="index.php?page=pasien&id=<?php echo $data['id'] ?>&aksi=hapus">Hapus</a>
+                        <a class="btn btn-success rounded-pill px-3" href="index2.php?page=pasien&id=<?php echo $data['id'] ?>">Ubah</a>
+                        <a class="btn btn-danger rounded-pill px-3" href="index2.php?page=pasien&id=<?php echo $data['id'] ?>&aksi=hapus">Hapus</a>
                     </td>
                 </tr>
             <?php

@@ -1,16 +1,386 @@
+.navbarku{
+  font-size: 24px;
+}
+/* Slideshow container */
+.content-slidee {
+  width: 100%;
+  position: relative;
+}
 
-  #card {
-    padding: 20px;
+.imgslide {
+  display: none;
+  width: 100%;
+}
+
+.gambar {
+  vertical-align: middle;
+  width: 100%;
+  height: 600px;
+}
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  color: rgb(255, 254, 224);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(0, 0, 0);
+}
+
+.text {
+  color: #fafafa;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.content-slidee .numberslidee {
+  color: #ffffff;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+}
+
+.fadee {
+  -webkit-animation-name: fadee;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fadee;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fadee {
+}
+from {
+  opacity: 0.4;
+}
+
+to {
+  opacity: 1;
+}
+
+@keyframes fadee {
+  from {
+    opacity: 0.4;
   }
-  
-  .card {
-    cursor: pointer;
-    margin-bottom: 30px;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 0 20px rgb(94, 101, 103);
+  to {
+    opacity: 1;
   }
-  
-  .card-body {
-    background-color: rgb(212, 210, 210);
+}
+
+.container .pagee {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.pagee .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  border-radius: 50%;
+}
+
+.pagee .active,
+.pagee .dot:hover {
+  background-color: #ca0e0e;
+  transition: 0.5s;
+}
+
+/* resposive */
+
+@media screen and (max-width: 800px) {
+  .gambar {
+    height: 300px;
   }
+}
+
+marquee {
+  height: 30px;
+  background-color: #2d315c;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+
+
+/* content > slogan */
+.slogan {
+  margin: 3em 0;
+  position: relative;
+}
+.desc-slogan {
+  text-align: center;
+  font-size: 700;
+}
+
+.slogan .card-img-top:hover {
+  background: rgb(145, 224, 255);
+  color: #fff;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: 0.3s ease-in-out;
+}
+
+#card {
+  padding: 20px;
+}
+
+.card {
+  cursor: pointer;
+  margin-bottom: 30px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 0 20px rgb(135, 226, 241);
+}
+
+.card-body {
+  text-align: center;
+  background-color: black;
+}
+
+/* body */
+div {
+  display: block;
+}
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gallery */
+.img-gallery {
+  width: 80%;
+  margin: 100px auto 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+.img-gallery img {
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+.img-gallery img:hover {
+  transform: scale(0.8) rotate(-15deg);
+  border-radius: 20px;
+  box-shadow: 0 32px 75px rgb(135, 226, 241);
+}
+
+.full-img {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.full-img img {
+  width: 90%;
+  max-width: 500px;
+}
+
+.full-img span {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* title card and contact */
+.h1 {
+  text-align: center;
+  color: rgb(6, 10, 12);
+  margin: 10rem;
+}
+
+.h2 {
+  text-align: center;
+}
+.card-img-top{
+  height: 200px;
+}
+.h-100:hover{
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+.orderr{
+  background-color: rgb(175, 32, 32);
+  color: white;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  width: 100px;
+}
+.orderr:hover{
+  background-color: red;
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+/* clients */
+.carouselExampleInterval {
+  width: 10px;
+  background: #000;
+}
+/* navbar footer */
+.footer-top {
+  background: black;
+  padding: 2% 0;
+}
+
+.footer-top .btn {
+  background: #fff;
+  border: none;
+  margin: 30px 0;
+  box-shadow: 1px 2px #0d6efd;
+}
+
+#footer-col {
+  display: block;
+  float: left;
+  margin: 0% 0 0% 2%;
+}
+
+#footer-col h3 {
+  color: #fff;
+  margin-bottom: 15%;
+  margin-top: 0%;
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+#footer-col p {
+  color: #fff;
+  line-height: 1.5em;
+  font-size: 0.8em;
+}
+
+#footer-col h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  line-height: 1;
+  font-weight: normal;
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  margin: 0%;
+  padding: 0;
+}
+
+.photo li {
+  float: left;
+  width: 30%;
+  padding-right: 5px;
+  margin-right: 0px;
+}
+.photo li img {
+  display: block;
+}
+img {
+  max-width: 100%;
+}
+
+.footer-list li {
+  display: -webkit-box;
+  color: #fff;
+}
+.footer-list li #brands {
+  margin-right: 10px;
+}
+
+.social-icons li {
+  color: #fff;
+  display: inline-block;
+  cursor: pointer;
+  margin: 3px;
+  padding: 3px;
+}
+
+.social-icons li .fa-square-facebook:hover {
+  color: #4267b2;
+  transition: 0.3s ease-in-out;
+}
+.social-icons li .fa-square-youtube:hover {
+  color: #ff0000;
+  transition: 0.3s ease-in-out;
+}
+.social-icons li .fa-square-twitter:hover {
+  color: #1da1f2;
+  transition: 0.3s ease-in-out;
+}
+.social-icons li .fa-square-google-plus:hover {
+  color: #d34836;
+  transition: 0.3s ease-in-out;
+}
+.social-icons li .fa-linkedin:hover {
+  color: #0077b5;
+  transition: 0.3s ease-in-out;
+}
+.social-icons li .fa-blogger:hover {
+  color: #ff5722;
+  transition: 0.3s ease-in-out;
+}
+
+.footer-list #email {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.footer-list #email:hover {
+  color: rgb(5, 142, 255);
+  text-decoration: underline;
+}
+
+/* footer-bottom */
+.footer-bottom {
+  text-align: center;
+  background: #1da1f2;
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+.footer-bottom .brand {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-bottom .brand:hover {
+  color: white;
+}
