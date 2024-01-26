@@ -21,6 +21,7 @@ if (isset($_GET['aksi'])) {
 
 
 <h2>Riwayat Pasien</h2>
+<button href="index.php?page=laporan_riwayat.php">downloat PDF</button>
 <br>
 
 <div class="container">
@@ -40,6 +41,7 @@ if (isset($_GET['aksi'])) {
         </thead>
         <!--tbody berisi isi tabel sesuai dengan judul atau head-->
         <tbody>
+            
             <!-- Kode PHP untuk menampilkan semua isi dari tabel urut-->
             <?php
                 $id_dokter = $_SESSION['id'];

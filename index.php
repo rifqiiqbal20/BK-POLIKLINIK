@@ -46,7 +46,7 @@ include_once("koneksi.php");
           ?>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="logoutUserr.php">Logout (
+              <a class="nav-link" href="logoutUser.php">Logout (
                 <?php echo $_SESSION['username'] ?>)
               </a>
             </li>
