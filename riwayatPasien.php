@@ -21,7 +21,7 @@ if (isset($_GET['aksi'])) {
 
 
 <h2>Riwayat Pasien</h2>
-<button href="index.php?page=laporan_riwayat.php">downloat PDF</button>
+<a href="laporan_riwayat.php"><input type="button" style="background: red;" value="Export PDF"></a>
 <br>
 
 <div class="container">
